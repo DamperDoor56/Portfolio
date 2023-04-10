@@ -1,4 +1,18 @@
 import './globals.css'
+import { Pathway_Gothic_One } from 'next/font/google';
+import { Raleway } from 'next/font/google';
+
+const gothic = Pathway_Gothic_One({
+  subsets: ["latin-ext"],
+  variable: "--font-gothic",
+  weight: '400'
+});
+const raleway = Raleway({
+  subsets: ["latin"],
+  variable: "--font-raleway",
+  weight: ['400', '500', '600', '700', '800'],
+
+});
 
 export const metadata = {
   title: 'Create Next App',
@@ -11,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${gothic.variable} overflow-x-hidden font-gothic ${raleway.variable} font-raleway`}>
       <body>{children}</body>
     </html>
   )
